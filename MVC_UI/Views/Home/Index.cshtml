@@ -1,0 +1,78 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    
+    <div class="col-md-9">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="pro-sort">
+                    <label class="pro-lab">Sort By</label>
+                    <select class="styled hasCustomSelect" style="appearance: menulist-button; width: 126px; position: absolute; opacity: 0; height: 39px; font-size: 12px;">
+                        <option>Default Sorting</option>
+                        <option>Popularity</option>
+                        <option>Average Rating</option>
+                        <option>Newness</option>
+                        <option>Price Low to High</option>
+                        <option>Price High to Low</option>
+                    </select><span class="customSelect styled" style="display: inline-block;"><span class="customSelectInner" style="width: 104px; display: inline-block;">Default Sorting</span></span>
+                </div>
+                <div class="pro-sort">
+                    <label class="pro-lab">Show</label>
+                    <select class="styled hasCustomSelect" style="appearance: menulist-button; width: 119px; position: absolute; opacity: 0; height: 39px; font-size: 12px;">
+                        <option>Result Per Page</option>
+                        <option>2 Per Page</option>
+                        <option>4 Per Page</option>
+                        <option>6 Per Page</option>
+                        <option>8 Per Page</option>
+                        <option>10 Per Page</option>
+                    </select><span class="customSelect styled" style="display: inline-block;"><span class="customSelectInner" style="width: 97px; display: inline-block;">Result Per Page</span></span>
+                </div>
+
+                <div class="pull-right">
+                    <ul class="pagination pagination-sm pro-page-list">
+
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="row product-list">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <section class="panel">
+                        <div class="pro-img-box">
+                            @if (product.ProductImagePath != null)
+                            {
+                                <img src="~/Content/image/product/@product.ProductImagePath" alt="Product img" />
+                            }
+                            else
+                            {
+                                <img src="https://kapaklitaxi.com/wp-content/uploads/2019/05/ef3-placeholder-image.jpg" alt="Error">
+                            }
+                            <a href="#" class="adtocart">
+                                <i class="icon-shopping-cart"></i>
+                            </a>
+                        </div>
+
+                        <div class="panel-body text-center">
+                            <h4>
+                               @Html.ActionLink(product.ProductName,"Details","Product",new {id=product.ID},new {@class = "pro-title"})
+                            </h4>
+                            <p class="price"> @product.UnitPrice</p>
+                        </div>
+                    </section>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
