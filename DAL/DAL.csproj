@@ -66,6 +66,7 @@
     <Compile Include="Map\SubCategoryMap.cs" />
     <Compile Include="Map\SupplierMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\DbContextSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
