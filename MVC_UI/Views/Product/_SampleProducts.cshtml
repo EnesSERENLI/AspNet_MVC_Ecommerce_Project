@@ -1,0 +1,34 @@
+﻿@model List<Product>
+
+<div class="row product-list">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+            <section class="panel">
+                <div class="pro-img-box">
+                    @if (product.ProductImagePath != null)
+                    {
+                        <img src="~/Content/image/product/@product.ProductImagePath" alt="">
+                    }
+                    else
+                    {
+                        <img src="https://kapaklitaxi.com/wp-content/uploads/2019/05/ef3-placeholder-image.jpg" alt="">
+
+                    }
+                    <a href="#" class="adtocart">
+                        <i class="icon-shopping-cart"></i>
+                    </a>
+                </div>
+
+                <div class="panel-body text-center">
+                    <h4>
+                        <a href="#" class="pro-title">
+                            @product.ProductName
+                        </a>
+                    </h4>
+                    <p class="price">$@product.UnitPrice</p>
+                </div>
+            </section>
+        </div>
+    }
+</div>

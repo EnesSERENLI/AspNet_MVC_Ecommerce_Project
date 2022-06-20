@@ -22,5 +22,10 @@ namespace MVC_UI.Controllers
                 return RedirectToAction("Index","Home");
             }
         }
+        public PartialViewResult _SampleProducts(Guid id)
+        {
+            var products = productService.GetDefault(x=> x.SubCategoryId == id).Take(3).ToList();
+            return PartialView(products);
+        }
     }
 }

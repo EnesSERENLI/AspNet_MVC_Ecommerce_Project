@@ -13,8 +13,7 @@
                     <div class="pro-img-details">
                         @if (Model.ProductImagePath != null)
                         {
-                            @*<img src="~/Content/image/product/@Model.ProductImagePath" alt="">*@
-                            <img src="https://kapaklitaxi.com/wp-content/uploads/2019/05/ef3-placeholder-image.jpg" alt="">
+                            <img src="~/Content/image/product/@Model.ProductImagePath" alt="">                            
                         }
                         else
                         {
@@ -113,7 +112,7 @@
                 </div>
             </div>
         </section>
-
+        @Html.Action("_SampleProducts", "Product",new {id = Model.SubCategoryId})
         @*@Html.Action("_SampleProduct", new { id = Model.SubCategoryId })*@
     </div>
 </div>
