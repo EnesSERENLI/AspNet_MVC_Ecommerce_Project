@@ -65,6 +65,7 @@
     <Compile Include="Map\ProductMap.cs" />
     <Compile Include="Map\SubCategoryMap.cs" />
     <Compile Include="Map\SupplierMap.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\DbContextSingleton.cs" />
   </ItemGroup>
