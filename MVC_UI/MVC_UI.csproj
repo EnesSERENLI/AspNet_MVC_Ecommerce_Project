@@ -1724,6 +1724,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1932,6 +1933,9 @@
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\AddProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\UpdateCategory.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

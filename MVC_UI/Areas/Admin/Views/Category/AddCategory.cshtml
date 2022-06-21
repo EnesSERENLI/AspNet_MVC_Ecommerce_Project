@@ -1,0 +1,38 @@
+﻿@model Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Add Category
+        </header>
+        <div class="panel-body">
+            <div class="alert-error">
+                @if (TempData["message"] != null)
+                {
+                    <span class="text-danger">
+                        @TempData["message"]
+                    </span>
+                }
+            </div>
+            <form method="post" role="form">
+                <div class="form-group">
+                    <label>CategoryName</label>
+                    @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">*@
+                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control round-input" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control round-input" })
+                    @*<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">*@
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+        </div>
+    </section>
+</div>
+
