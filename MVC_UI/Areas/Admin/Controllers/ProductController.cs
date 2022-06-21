@@ -1,4 +1,6 @@
 ﻿using BLL.Concrete;
+using Common;
+using DAL.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,31 @@ namespace MVC_UI.Areas.Admin.Controllers
             ViewBag.Supplier = supplierService.GetDefault(x=>x.Status == Core.Enums.Status.Active);
             ViewBag.SubCategories = subCategoryService.GetDefault(x => x.Status == Core.Enums.Status.Active);
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddProduct(Product product, HttpPostedFileBase fileImage)
+        {
+            try
+            {
+                bool result = productService.Any(x => x.ID == product.ID);
+                if (result)
+                {
+                    TempData["error"] = "This product is already exist!";
+                    return View(product);
+                }
+                else
+                {
+                    product.ProductImagePath = ImageUploader.UploadImage("~/Content/image/product/", fileImage);
+                    TempData["message"] = productService.Add(product);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return View();
+            }
         }
     }
 }

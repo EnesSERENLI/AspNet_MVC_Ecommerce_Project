@@ -1949,6 +1949,7 @@
     <Folder Include="Content\assets\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="Content\assets\jquery-file-upload\server\node\tmp\" />
     <Folder Include="Content\assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="Content\Image\Product\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
