@@ -32,7 +32,7 @@ namespace MVC_UI.Areas.Admin.Controllers
         {
             try
             {
-                bool result = productService.Any(x => x.ID == product.ID);
+                bool result = productService.Any(x => x.ProductName == product.ProductName);
                 if (result)
                 {
                     TempData["error"] = "This product is already exist!";
