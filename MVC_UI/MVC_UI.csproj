@@ -1931,6 +1931,7 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\AddProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -1945,7 +1946,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Products\" />
     <Folder Include="Content\assets\jquery-file-upload\server\node\public\files\thumbnail\" />
     <Folder Include="Content\assets\jquery-file-upload\server\node\tmp\" />
     <Folder Include="Content\assets\jquery-file-upload\server\php\files\thumbnail\" />

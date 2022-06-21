@@ -1,0 +1,80 @@
+﻿@model Product
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Update Product
+        </header>
+        <div class="panel-body">
+            <div class="alert-error text-error">
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-error alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            Error!
+                        </h4>
+                        <p>@TempData["message"]</p>
+                    </div>
+                }
+            </div>
+            <form method="post" role="form">
+                <div class="form-group">
+                    <label>ID</label>
+                    @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">*@
+                    @Html.TextBoxFor(x => x.ID, new { @class = "form-control round-input" })
+                </div>
+                <div class="form-group">
+                    <label>ProductName</label>
+                    @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">*@
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control round-input" })
+                </div>
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <select class="form-control round-input input-medium m-bot15" name="SupplierId">
+                        @foreach (var supplier in ViewBag.Supplier)
+                        {
+                            <option value="@supplier.ID">@supplier.CompanyName</option>
+                        }
+                        <option selected value="@Model.SupplierId" disabled>@Model.Supplier.CompanyName</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>SubCategoryName</label>
+                    <select class="form-control round-input input-medium m-bot15" name="SubCategoryId">
+                        @foreach (var subCategory in ViewBag.SubCategories)
+                        {
+                            <option value="@subCategory.ID">@subCategory.SubCategoryName</option>
+                        }
+                        <option selected value="@Model.SubCategoryId" disabled>@Model.SubCategory.SubCategoryName</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>UnitPrice</label>
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control round-input" })
+                    @*<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">*@
+                </div>
+                <div class="form-group">
+                    <label>UnitInStock</label>
+                    @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control round-input", @type = "number" })
+                    @*<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">*@
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">*@
+                    @Html.TextBoxFor(x => x.ProductImagePath, new { @class = "form-control round-input" })
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+        </div>
+    </section>
+</div>
+

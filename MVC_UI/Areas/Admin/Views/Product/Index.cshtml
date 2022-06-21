@@ -59,6 +59,10 @@
                                 {
                                     <span class="label label-danger label-mini">@product.Status</span>
                                 }
+                                else if (product.Status == Core.Enums.Status.Updated)
+                                {
+                                    <span class="label label-warning">@product.Status</span>
+                                }
 
                             </td>
                             <td>

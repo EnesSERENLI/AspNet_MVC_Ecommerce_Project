@@ -74,7 +74,14 @@ namespace DAL.Context
                             entity.UpdatedDate = date;
                             entity.UpdatedComputerName = computerName;
                             entity.UpdatedIP = ipAdress;
-                            entity.Status = Core.Enums.Status.Updated;
+                            if (entity.Status == Core.Enums.Status.Deleted)
+                            {
+                                entity.Status = Core.Enums.Status.Deleted;
+                            }
+                            else
+                            {
+                                entity.Status = Core.Enums.Status.Updated;
+                            }
                             break;
                     }
                 }

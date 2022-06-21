@@ -12,7 +12,7 @@ namespace MVC_UI.Controllers
         ProductService productService = new ProductService();
         public ActionResult Index()
         {
-            var result = productService.GetDefault(x => x.Status == Core.Enums.Status.Active).ToList(); //Only active products..
+            var result = productService.GetDefault(x => x.Status == Core.Enums.Status.Active || x.Status == Core.Enums.Status.Updated).ToList(); //Only active and updated products..
             return View(result);
         }
     }

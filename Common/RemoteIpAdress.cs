@@ -20,6 +20,7 @@ namespace Common
                 if (item.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
                     ip = item.ToString();
+                    return ip;
                 }
             }
             return "Ip adress not found";
