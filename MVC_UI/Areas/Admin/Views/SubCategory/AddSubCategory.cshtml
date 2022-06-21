@@ -1,0 +1,42 @@
+﻿@model SubCategory
+@{
+    ViewBag.Title = "AddSubCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-6">
+    <section class="panel">
+        <header class="panel-heading">
+            Add SubCategory
+        </header>
+        <div class="panel-body">
+            <div class="alert-error">
+                @if (TempData["message"] != null)
+                {
+                    <span class="text-danger">
+                        @TempData["message"]
+                    </span>
+                }
+            </div>
+            <form method="post" role="form">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">SubCategoryName</label>
+                    @*<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">*@
+                    @Html.TextBoxFor(x => x.SubCategoryName, new { @class = "form-control round-input" })
+                </div>
+                <div class="form-group">
+                    <label>CategryName</label>
+                    <select class="form-control round-input input-medium m-bot15" name="CategoryId">
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.ID">@category.CategoryName</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+        </div>
+    </section>
+</div>
+
