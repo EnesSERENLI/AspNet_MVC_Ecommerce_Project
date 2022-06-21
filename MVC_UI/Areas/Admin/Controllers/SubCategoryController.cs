@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class SubCategoryController : Controller
     {
         SubCategoryService subCategoryService = new SubCategoryService();

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MVC_UI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ProductController : Controller
     {
         ProductService productService = new ProductService();

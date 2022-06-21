@@ -1731,9 +1731,11 @@
     <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AppUserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1949,6 +1951,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\_SampleProducts.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1962,7 +1965,6 @@
     <Folder Include="Content\assets\jquery-file-upload\server\node\tmp\" />
     <Folder Include="Content\assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Content\Image\Product\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

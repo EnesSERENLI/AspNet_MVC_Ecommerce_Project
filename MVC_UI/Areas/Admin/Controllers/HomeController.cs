@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MVC_UI.Areas.Admin.Controllers
 {
-    //[Authorize(Roles ="admin")]
+    [Authorize(Roles = "admin")]
     public class HomeController : Controller
     {
         ProductService productService = new ProductService();
