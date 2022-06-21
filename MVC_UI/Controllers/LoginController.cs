@@ -13,7 +13,7 @@ namespace MVC_UI.Controllers
     public class LoginController : Controller
     {
         AppUserService appUserService = new AppUserService();
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }

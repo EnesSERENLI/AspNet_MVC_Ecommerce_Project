@@ -1729,6 +1729,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -1737,6 +1738,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUserVM.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LoginUserVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\AppUserRoleProvider.cs" />
@@ -1956,6 +1959,9 @@
     <Content Include="Views\Product\_SampleProducts.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Register\Pending.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Cart\MyCart.cshtml" />
+    <Content Include="Views\Cart\ComplateCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1969,7 +1975,6 @@
     <Folder Include="Content\assets\jquery-file-upload\server\node\tmp\" />
     <Folder Include="Content\assets\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Content\Image\Product\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

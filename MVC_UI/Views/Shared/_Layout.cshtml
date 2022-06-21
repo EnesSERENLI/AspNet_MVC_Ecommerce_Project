@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    MVC_UI.Models.Cart sepet = Session["scart"] as MVC_UI.Models.Cart;
+    DAL.Entity.AppUser user = Session["login"] as DAL.Entity.AppUser;
+}
 @{
     Layout = null;
 }
@@ -252,16 +255,63 @@
                 <!--  notification end -->
             </div>
             <div class="top-nav ">
-                <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder="Search">
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <i class="icon-shopping-cart"></i>
+                            @{ if (Session["scart"] != null)
+                                {
+
+                                    <span class="badge bg-success">@sepet.myCart.Count</span> }
+                            }
+                        </a>
+                        @if (Session["scart"] != null)
+                        {
+                            if (sepet.myCart.Count > 0)
+                            {
+                                <ul class="dropdown-menu extended notification">
+                                    <div class="notify-arrow notify-arrow-yellow"></div>
+                                    <li>
+                                        <p class="yellow">Sepetinizde toplam @sepet.myCart.Count adet ürün bulunmakta</p>
+                                    </li>
+                                    @foreach (var item in sepet.myCart.ToList())
+                                    {
+                                        <li>
+                                            <a href="#">
+                                                <span class="label label-danger"><i class="icon-bolt"></i></span>
+                                                @item.ProductName
+                                                <span class="small italic">@item.SubTotal</span>
+                                            </a>
+                                        </li>
+                                    }
+                                    <li>
+                                        <a href="/Home/MyCart">Sepete Git</a>
+                                    </li>
+
+
+                                </ul>
+                            }
+                        }
+
+
                     </li>
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="img/avatar1_small.jpg">
-                            <span class="username">Jhon Doue</span>
+                            @if (user != null)
+                            {
+                                <span class="username">
+                                    @user.UserName
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="username">
+                                    NoName
+                                </span>
+                            }
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -289,11 +339,29 @@
                             <span>Home</span>
                         </a>
                     </li>
+                    @if (user != null)
+                    {
+                        if (user.UserName == "enes")
+                        {
+                            <li>
+                                <a class="active" href="/Admin/Home/index">
+                                    <i class="icon-dashboard"></i>
+                                    <span>Admin Home</span>
+                                </a>
+                            </li>
+                        }
+                    }
 
                     <li>
-                        <a href="/account/login">
+                        <a href="/Login/login">
                             <i class="icon-user"></i>
                             <span>Login Page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Register/Register">
+                            <i class="icon-user"></i>
+                            <span>Register Page</span>
                         </a>
                     </li>
 
@@ -373,24 +441,24 @@
 
     <script>
 
-      //owl carousel
+        //owl carousel
 
-      $(document).ready(function() {
-          $("#owl-demo").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true,
-			  autoPlay:true
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
 
-          });
-      });
+            });
+        });
 
-      //custom select box
+        //custom select box
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
+        $(function () {
+            $('select.styled').customSelect();
+        });
 
     </script>
 
