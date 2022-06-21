@@ -44,7 +44,7 @@
                 @Html.ValidationMessageFor(x => x.Email)
                 @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
 
-                @Html.ValidationMessageFor(x => x.Password)
+                @Html.ValidationMessageFor(x=> x.Password)
                 @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = "Password" })
 
                 @Html.ValidationMessageFor(x => x.ConfirmPassword)
@@ -56,7 +56,7 @@
 
                 <div class="registration">
                     Already Registered.
-                    <a class="" href="/Home/login">
+                    <a class="" href="/Login/login">
                         Login
                     </a>
                 </div>

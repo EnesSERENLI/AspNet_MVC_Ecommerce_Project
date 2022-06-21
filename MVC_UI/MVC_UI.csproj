@@ -1952,6 +1952,7 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\_SampleProducts.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\Register\Pending.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

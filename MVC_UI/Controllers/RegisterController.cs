@@ -1,4 +1,5 @@
 ﻿using BLL.Concrete;
+using Common;
 using DAL.Entity;
 using MVC_UI.Models;
 using System;
@@ -22,7 +23,7 @@ namespace MVC_UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = appUserService.Any(x => x.UserName == appUserVM.UserName && x.Email == appUserVM.Email);
+                var result = appUserService.Any(x => x.UserName == appUserVM.UserName || x.Email == appUserVM.Email);
                 if (result)
                 {
                     TempData["info"] = "This User already exist!";
@@ -38,6 +39,7 @@ namespace MVC_UI.Controllers
                     TempData["info"]=message;
 
                     //Mail Sender
+                    MailSender.SendMail(user.Email, "Membership Activation", $"Click the link to activate your subscription https://localhost:44318/Register/Activation/" + user.ID);
                     return RedirectToAction("Pending");
                 }
             }
@@ -46,7 +48,33 @@ namespace MVC_UI.Controllers
                 return View(appUserVM);
             }
         }
-
+        //Pending
+        public ActionResult Pending(AppUser appUser)
+        {
+            if (appUser != null)
+            {
+                return View(appUser);
+            }
+            else
+            {
+                return RedirectToAction("Index","Home");
+            }
+        }
+        //Activation
+        public ActionResult Activation(Guid id)
+        {
+            if (id != null)
+            {
+                AppUser user = appUserService.GetDefault(x=>x.ID == id).FirstOrDefault();
+                user.ConfirmEmail = true;
+                appUserService.Update(user);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Register");
+            }
+        }
 
     }
 }
