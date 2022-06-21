@@ -5,15 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC_UI.Controllers
+namespace MVC_UI.Areas.Admin.Controllers
 {
+    //[Authorize(Roles ="admin")]
     public class HomeController : Controller
     {
         ProductService productService = new ProductService();
         public ActionResult Index()
         {
-            var result = productService.GetDefault(x => x.Status == Core.Enums.Status.Active).ToList(); //Only active products..
-            return View(result);
+            return View(productService.GetList());
         }
     }
 }
